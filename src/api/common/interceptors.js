@@ -36,7 +36,8 @@ export const setInterceptors = (instance, isToken) => {
       // Any status codes that falls outside the range of 2xx cause this function to trigger
       // Do something with response error
       useLoadingStore().setLoading(false);
-
+      console.log(error);
+      console.log(error.response);
       if (error.response.status === 401) {
         /* 토큰만로 후 토큰 갱신 로직 */
         if (useUserStore().user.refreshAccessToken === '') {
